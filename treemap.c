@@ -52,7 +52,8 @@ void insertTreeMap(TreeMap * tree, void* key, void * value) {
     while(aux!=NULL){
         if(searchTreeMap(tree,key)==NULL){
             tree->current=new;
-        }else return NULL;
+            return tree;
+        }
     }
     
 
