@@ -108,8 +108,8 @@ Pair * firstTreeMap(TreeMap * tree) {
 
 Pair * nextTreeMap(TreeMap * tree) {
     TreeNode*next;
-    if( tree->current->left!=NULL){
-        next=tree->current->left;
+    if( tree->current->right!=NULL){
+        next=tree->current->right;
         tree->current=next;
     }
     return next->pair;
