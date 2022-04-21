@@ -107,5 +107,7 @@ Pair * firstTreeMap(TreeMap * tree) {
 }
 
 Pair * nextTreeMap(TreeMap * tree) {
-    return NULL;
+    TreeNode*next=tree->current->left;
+    tree->current=next;
+    return next->pair;
 }
