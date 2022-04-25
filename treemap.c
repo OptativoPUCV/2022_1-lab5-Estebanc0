@@ -50,6 +50,7 @@ void insertTreeMap(TreeMap * tree, void* key, void * value) {
    Pair* aux=searchTreeMap(tree,key);
    TreeNode* new=createTreeNode(key,value);
    if(aux->key!=key){
+       return NULL;
        if(tree->lower_than(key,aux)==1){
            tree->current->left=new;
            new->parent=tree->current;
