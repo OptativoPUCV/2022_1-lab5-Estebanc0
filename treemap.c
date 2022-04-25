@@ -168,14 +168,19 @@ Pair * firstTreeMap(TreeMap * tree) {
 Pair * nextTreeMap(TreeMap * tree) {
     TreeNode*next;
     if( tree->current->right!=NULL){
-        next=tree->current->right;
+        next=minimum(tree->current->right);
         tree->current=next;
-        //return minimum(next->pair);
+        return next->pair;
     }
-    if( tree->current->left!=NULL){
-        next=tree->current->left;
-        tree->current=next;
-        //return next->pair;
-    }    
-    return next->pair;
+    TreeNode* aux=tree->current->parent;
+    while(aux!=NULL){
+        if(tree->lower_than(tree->current->pair->key,aux->pair->key)==1){
+            tree->current=aux;
+            return aux->pair;
+        }
+        else{
+            aux=aux->parent;
+        }
+    } 
+    return NULL;
 }
