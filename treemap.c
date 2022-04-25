@@ -64,65 +64,7 @@ TreeNode * minimum(TreeNode * x){
 
 
 void removeNode(TreeMap * tree, TreeNode* node) {
-    if (tree == NULL || tree->root == NULL) return;
-
-    if (node->left == node){
-        if(node->left == NULL ||  node->right == NULL){
-            if(node->left != NULL){
-                node->left->parent = node->parent;
-                node->parent->left = node->left;
-                node = NULL;
-            }
-            if (node->right != NULL){
-                node->right->parent = node->parent;
-                node->parent->left = node->right;
-                node = NULL;
-            }
-            else{
-                node->parent->left = node->left;
-                node = NULL;
-            }
-        }
-        else{
-            TreeNode* aux = node->right;
-            aux = minimum(aux);
-            node->parent->left = aux;
-            aux->parent = node->parent;
-            aux->right = node->right;
-        }
-
-    }
-    else{
-        
-        if (tree == NULL || tree->root == NULL) return;
-
-        if (node->right == node){
-            if(node->right == NULL || node->left == NULL){
-                if(node->right != NULL){
-                    node->right->parent = node->parent;
-                    node->parent->right = node->right;
-                    node = NULL;
-                }
-                if (node->left != NULL){
-                    node->left->parent = node->parent;
-                    node->parent->right = node->left;
-                    node = NULL;
-                }
-                else{
-                    node->parent->right = node->right;
-                    node = NULL;
-                }
-            }
-            else{
-                TreeNode* aux = node->left;
-                aux = minimum(aux);
-                node->parent->right = aux;
-                aux->parent = node->parent;
-                aux->left = node->left;
-            }
-
-        }
-    }
+    
 
 }
 
